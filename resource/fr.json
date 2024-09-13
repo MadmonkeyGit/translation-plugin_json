@@ -1,15 +1,1 @@
-{
-    "key1": "key1 value fr",
-    "key2": "key2 value fr",
-    "key3":
-    {
-        "key31": "key31 value fr",
-        "key32": "key32 value fr",
-        "key33":
-                {
-                    "key331": "key331 value fr",
-                    "key333": "key333 value fr"
-                }
-    },
-    "key4": "key4 value fr"
-}
+{"key1": "key1 value fr", "key2": "key2 value fr", "key3": {"key31": "key31 value fr", "key32": "key32 value fr", "key33": {"key331": "key331 value fr", "key332": "cl\u00e9 de test une sur trois sur trois"}}}

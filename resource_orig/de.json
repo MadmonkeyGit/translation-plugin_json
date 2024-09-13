@@ -1,9 +1,14 @@
 {
-    "key1": "key1 value de",
-    "key2": "key2 value de",
+    "key1": "testschlüssel eins",
+    "key2": "testschlüssel zwei",
     "key3":
     {
-        "key31": "key31 value de",
-        "key32": "key32 value de"
+        "key31": "testschlüssel eins in drei",
+        "key32": "testschlüssel zwei in drei",
+        "key33":
+                {
+                    "key331": "testschlüssel eins in drei in drei",
+                    "key332": "testschlüssel eins in drei in drei"
+                }
     }
 }
