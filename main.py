@@ -76,7 +76,7 @@ def add_missing_keys(master_file: dict, slave_file: dict, target_language: str) 
 def main() -> None:
     root = tk.Tk()
     root.withdraw()
-    path_and_file = os.path.split(os.path.abspath(filedialog.askopenfilename()))
+    path_and_file = os.path.split(os.path.abspath(filedialog.askopenfilename(title='!! Select german JSON file (de.json) !!')))
 
     path_resources = path_and_file[0]
     name_main_file = path_and_file[1]
