@@ -1,8 +1,14 @@
+# Pfusch by LRaschein
+# 30.09.2024
+# to create .exe: pyinstaller --onefile main.py
+
 import time
 import os
 import json
 from deepdiff import DeepDiff
 from deep_translator import GoogleTranslator
+import tkinter as tk
+from tkinter import filedialog
 
 
 def translate(txt: str | dict, target_language: str) -> str | dict:
@@ -68,16 +74,21 @@ def add_missing_keys(master_file: dict, slave_file: dict, target_language: str) 
 
 
 def main() -> None:
-    path_resources = os.path.join(os.getcwd(), "resource")
-    name_main_file = "de.json"
+    root = tk.Tk()
+    root.withdraw()
+    path_and_file = os.path.split(os.path.abspath(filedialog.askopenfilename()))
+
+    path_resources = path_and_file[0]
+    name_main_file = path_and_file[1]
     translation_file_names = ["en.json", "fr.json", "it.json"]
+
     translation_files = [""] * len(translation_file_names)
 
     with open(os.path.join(path_resources, name_main_file), 'r') as file:
         main_file = json.load(file)
-    print(f"{main_file = }")
 
     for idx, file_name in enumerate(translation_file_names):
+        print(f"updated the file {file_name}.")
         if "en" in file_name:
             language = "en"
         elif "fr" in file_name:
@@ -86,13 +97,11 @@ def main() -> None:
             language = "it"
         else:
             language = "de"
-        print(f"{language = }")
         with open(os.path.join(path_resources, file_name), 'r') as file:
             translation_files[idx] = json.load(file)
         translation_files[idx] = add_missing_keys(main_file, translation_files[idx], language)
         with open(os.path.join(path_resources, file_name), "w") as outfile:
             json.dump(translation_files[idx], outfile)
-        print(f"translation_files[{idx}] = {translation_files[idx]}")
 
 
 if __name__ == '__main__':
